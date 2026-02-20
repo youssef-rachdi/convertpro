@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConvertPro | Premium File Conversion</title>
+    
+    <meta name="description" content="ConvertPro - Free online file converter. Convert PDF, Word, Images, Videos, Audio, and OCR instantly.">
+    <meta name="keywords" content="PDF to Word, Word to PDF, MP4 to MP3, Image to PDF, Compress PDF, Online File Converter, OCR tool, Free Converter">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; transition: background 0.5s ease; }
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .dark .glass {
+            background: rgba(17, 24, 39, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .gradient-bg {
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .dropzone-active { border-color: #6366f1; background: rgba(99, 102, 241, 0.1); }
+    </style>
+</head>
+<body class="gradient-bg min-h-screen flex items-center justify-center p-4">
+
+<main class="glass w-full max-w-2xl rounded-[2.5rem] p-8 shadow-2xl relative overflow-hidden">
+    <div class="flex justify-between items-center mb-6">
+        <div>
+            <h1 class="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400">
+                ⚡ ConvertPro
+            </h1>
+            <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">Fast, Secure, Infinite possibilities.</p>
+        </div>
+        <button onclick="toggleDark()" class="p-2 rounded-full hover:bg-white/50 transition">
+            <svg id="theme-icon" class="w-6 h-6 text-gray-700 dark:text-gray-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+        </button>
+    </div>
+
+    <div class="my-4 overflow-hidden rounded-xl">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+             data-ad-slot="XXXXXXXXXX"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <div class="space-y-4">
+        <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 ml-1">Select Tool</label>
+        <select id="tool" class="w-full bg-white/50 dark:bg-gray-800/50 border-0 ring-1 ring-gray-200 dark:ring-gray-700 rounded-2xl p-4 text-gray-800 dark:text-white focus:ring-2 focus:ring-indigo-500 outline-none transition cursor-pointer appearance-none">
+            <option value="/media/mp4-mp3">MP4 → MP3</option>
+            <option value="/image/convert">Image → PNG</option>
+            <option value="/image/compress">Compress Image</option>
+            <option value="/image/img-to-pdf">Image → PDF</option>
+            <option value="/pdf/merge">Merge PDF</option>
+            <option value="/pdf/split">Split PDF</option>
+            <option value="/office/word-to-pdf">Word → PDF</option>
+            <option value="/office/pdf-to-word">PDF → Word</option>
+            <option value="/ocr/extract-text">OCR (Image → Text)</option>
+        </select>
+
+        <div id="drop" class="group border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-3xl p-10 text-center transition-all hover:border-indigo-500 hover:bg-indigo-50/50 dark:hover:bg-indigo-900/20 cursor-pointer relative">
+            <div class="pointer-events-none">
+                <div class="bg-indigo-100 dark:bg-indigo-900/50 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                    <svg class="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
+                </div>
+                <p class="text-gray-700 dark:text-gray-200 font-medium">Click or drag files here</p>
+                <p class="text-gray-400 text-xs mt-1">All file types supported</p>
+            </div>
+            <input type="file" id="fileInput" class="hidden" multiple>
+        </div>
+
+        <div id="fileList" class="hidden space-y-2 max-h-32 overflow-y-auto pr-2"></div>
+
+        <button onclick="convert()" id="convertBtn" class="w-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-bold py-4 rounded-2xl shadow-lg shadow-indigo-500/30 transform active:scale-[0.98] transition-all flex items-center justify-center gap-2">
+            <span>Convert Now</span>
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+        </button>
+
+        <div class="my-4 overflow-hidden rounded-xl">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                 data-ad-slot="XXXXXXXXXX"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+    </div>
+
+    <div id="progress" class="mt-4 text-center text-sm font-medium text-indigo-600 dark:text-indigo-400"></div>
+
+    <footer class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700 flex justify-between items-center text-[10px] text-gray-400 uppercase tracking-widest">
+        <span>© 2026 ConvertPro Studio</span>
+        <div class="flex gap-4">
+            <a href="#" class="hover:text-indigo-500">Privacy</a>
+            <a href="#" class="hover:text-indigo-500">Terms</a>
+        </div>
+    </footer>
+</main>
+
+<script>
+    const drop = document.getElementById("drop");
+    const fileInput = document.getElementById("fileInput");
+    const fileList = document.getElementById("fileList");
+    let selectedFiles = [];
+
+    drop.onclick = () => fileInput.click();
+    fileInput.onchange = e => handleFiles(e.target.files);
+
+    drop.ondragover = e => { e.preventDefault(); drop.classList.add('dropzone-active'); };
+    drop.ondragleave = () => drop.classList.remove('dropzone-active');
+    drop.ondrop = e => {
+        e.preventDefault();
+        drop.classList.remove('dropzone-active');
+        handleFiles(e.dataTransfer.files);
+    };
+
+    function handleFiles(files) {
+        selectedFiles = Array.from(files);
+        if(selectedFiles.length > 0) {
+            fileList.innerHTML = "";
+            fileList.classList.remove('hidden');
+            selectedFiles.forEach(f => {
+                const div = document.createElement('div');
+                div.className = "flex justify-between items-center bg-white/50 dark:bg-gray-700/30 p-2 px-4 rounded-xl text-xs text-gray-600 dark:text-gray-300 border border-black/5";
+                div.innerHTML = `<span>📄 ${f.name}</span> <span>${(f.size/1024/1024).toFixed(2)} MB</span>`;
+                fileList.appendChild(div);
+            });
+        }
+    }
+
+    async function convert() {
+        if(selectedFiles.length === 0) { alert("Select files first"); return; }
+        const btn = document.getElementById("convertBtn");
+        const progress = document.getElementById("progress");
+        
+        btn.disabled = true;
+        progress.innerText = "Processing...";
+
+        try {
+            const formData = new FormData();
+            selectedFiles.forEach(f => formData.append("file", f));
+            const res = await fetch(document.getElementById("tool").value, {method: "POST", body: formData});
+            const blob = await res.blob();
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url; a.download = "converted_file"; a.click();
+            progress.innerText = "✅ Done!";
+        } catch (err) {
+            progress.innerText = "❌ Error processing file.";
+        } finally {
+            btn.disabled = false;
+        }
+    }
+
+    function toggleDark() {
+        document.documentElement.classList.toggle("dark");
+    }
+</script>
+</body>
+</html>
