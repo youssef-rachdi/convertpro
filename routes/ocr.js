@@ -1,74 +1,52 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
-const multer = require("multer");
-const fs = require("fs");
-const path = require("path");
-const sharp = require("sharp");
-const { createWorker } = require("tesseract.js");
+const multer = require('multer');
+const Tesseract = require('tesseract.js');
+const fs = require('fs');
+const path = require('path');
+const PDFDocument = require('pdfkit'); // Use pdfkit for consistent PDF output
 
-// 👇 مهم لويندوز
-process.env.TESSDATA_PREFIX = "C:\\Program Files\\Tesseract-OCR\\tessdata";
+const upload = multer({ dest: 'uploads/' });
 
-// إعداد رفع الملفات
-const upload = multer({ dest: "uploads/" });
+router.post("/extract-text", upload.single("file"), async (req, res) => {
+    console.log("OCR Request Received: Image to PDF");
+    
+    if (!req.file) return res.status(400).send("No file uploaded");
 
-// حذف آمن للملفات
-const safeDelete = (filePath) => {
-  fs.unlink(filePath, err => {
-    if (err) console.log("Delete skipped:", err.code);
-  });
-};
+    // DEFINING VARIABLES FIRST
+    const inputPath = req.file.path;
+    const finalPdfPath = path.join(__dirname, '../outputs', `${req.file.filename}.pdf`);
 
-// 🧠 تحسين الصورة قبل OCR (زيادة الدقة)
-async function preprocessImage(inputPath, outputPath) {
-  await sharp(inputPath)
-    .grayscale()
-    .normalize()
-    .sharpen()
-    .threshold(150)
-    .toFile(outputPath);
-}
+    try {
+        // 1. Run OCR
+        console.log("Starting OCR process...");
+        const { data: { text } } = await Tesseract.recognize(inputPath, 'eng+ara+fra', {
+            logger: m => console.log(m.status, Math.round(m.progress * 100) + "%")
+        });
 
-// 📌 Image → Text OCR
-router.post("/image-to-text", upload.single("file"), async (req, res) => {
-  if (!req.file) return res.status(400).send("No file uploaded");
+        // 2. Create PDF using PDFKit (much more stable than docx-pdf for text)
+        const doc = new PDFDocument();
+        const stream = fs.createWriteStream(finalPdfPath);
+        doc.pipe(stream);
 
-  const originalPath = req.file.path;
-  const processedPath = originalPath + "_processed.png";
+        // Add the extracted text to the PDF
+        doc.fontSize(12).text(text, 50, 50);
+        doc.end();
 
-  try {
-    // تحسين الصورة
-    await preprocessImage(originalPath, processedPath);
+        // 3. Wait for stream to finish then download
+        stream.on('finish', () => {
+            console.log("OCR PDF Created ✅");
+            res.download(finalPdfPath, "Extracted_Text.pdf", () => {
+                if (fs.existsSync(inputPath)) fs.unlinkSync(inputPath);
+                if (fs.existsSync(finalPdfPath)) fs.unlinkSync(finalPdfPath);
+            });
+        });
 
-    // تشغيل OCR
-    const worker = await createWorker("ara+eng+fra");
-
-    await worker.setParameters({
-      tessedit_pageseg_mode: 6,
-      preserve_interword_spaces: 1,
-    });
-
-    const {
-      data: { text },
-    } = await worker.recognize(processedPath);
-
-    await worker.terminate();
-
-    // حذف الملفات
-    safeDelete(originalPath);
-    safeDelete(processedPath);
-
-    res.send({
-      success: true,
-      extracted_text: text.trim(),
-    });
-
-  } catch (error) {
-    console.error(error);
-    safeDelete(originalPath);
-    safeDelete(processedPath);
-    res.status(500).send("OCR processing failed");
-  }
+    } catch (err) {
+        console.error("OCR Error:", err);
+        if (fs.existsSync(inputPath)) fs.unlinkSync(inputPath);
+        res.status(500).send("OCR Processing Failed");
+    }
 });
 
 module.exports = router;
