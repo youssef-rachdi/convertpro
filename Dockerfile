@@ -1,30 +1,36 @@
-# Use an official Node.js runtime as a parent image
 FROM node:20
 
-# Install ffmpeg for your media conversions
-RUN apt-get update && apt-get install -y ffmpeg
+# Install all necessary system libraries in one clean layer
+RUN apt-get update && apt-get install -y \
+    ffmpeg \
+    libglib2.0-0 \
+    libnss3 \
+    libatk1.0-0 \
+    libatk-bridge2.0-0 \
+    libcups2 \
+    libdrm2 \
+    libxkbcommon0 \
+    libxcomposite1 \
+    libxdamage1 \
+    libxrandr2 \
+    libgbm1 \
+    libasound2 \
+    && rm -rf /var/lib/apt/lists/*
 
-# Add this to your Dockerfile to fix GLib errors on Linux
-RUN apt-get update && apt-get install -y libglib2.0-0 libnss3 libatk1.0-0 libatk-bridge2.0-0 libcups2 libdrm2 libxkbcommon0 libxcomposite1 libxdamage1 libxrandr2 libgbm1 libasound2
-
-# Set the working directory
 WORKDIR /app
 
-# Copy package files and install dependencies
+# Only copy package files first for faster caching
 COPY package*.json ./
 RUN npm install
 
-# Copy the rest of your application code
+# Copy everything else
 COPY . .
 
-# Create uploads and outputs folders
-RUN mkdir -p uploads outputs && chmod 777 uploads outputs
+# Create folders with full permissions
+RUN mkdir -p uploads outputs && chmod -R 777 uploads outputs
 
-# Expose the port your app runs on
 EXPOSE 7860
-
-# Set environment variable for the port (Hugging Face uses 7860)
 ENV PORT=7860
 
-# Start the application
+# Use 'node' directly to ensure the process stays alive
 CMD ["node", "server.js"]
