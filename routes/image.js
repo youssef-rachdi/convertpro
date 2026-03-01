@@ -50,4 +50,38 @@ router.post("/img-to-pdf", upload.single("file"), async (req, res) => {
 });
 
 
+const { removeBackground } = require("@imgly/background-removal-node");
+
+// Add this alongside your compression route  //remove background
+router.post("/remove-bg", upload.single("file"), async (req, res) => {
+    console.log("Incoming Request: POST /image/remove-bg");
+    if (!req.file) return res.status(400).send("No file uploaded");
+
+    const inputPath = req.file.path;
+    const outputPath = path.join(__dirname, '../outputs', `no-bg_${Date.now()}.png`);
+
+    try {
+        // Dynamic require: only loads the heavy AI library when the button is clicked
+        const { removeBackground } = require("@imgly/background-removal-node");
+
+        const blob = await removeBackground(inputPath);
+        const buffer = Buffer.from(await blob.arrayBuffer());
+        
+        fs.writeFileSync(outputPath, buffer);
+
+        res.download(outputPath, "no-background.png", () => {
+            if (fs.existsSync(inputPath)) fs.unlinkSync(inputPath);
+            if (fs.existsSync(outputPath)) fs.unlinkSync(outputPath);
+        });
+    } catch (err) {
+        console.error("AI Initialization Error:", err.message);
+        
+        // Cleanup the uploaded file so your server doesn't get full
+        if (fs.existsSync(inputPath)) fs.unlinkSync(inputPath);
+        
+        // Tell the frontend what happened without crashing the server
+        res.status(500).send("AI Background removal failed. This usually happens on local Windows due to missing GLib libraries. It will work on Hugging Face (Linux).");
+    }
+});
+
 module.exports = router;

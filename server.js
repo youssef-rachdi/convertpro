@@ -2,6 +2,9 @@ const express = require("express");
 const path = require("path");
 const fs = require("fs");
 const cors = require("cors");
+const videoRoutes = require('./routes/video');
+const toolRoutes = require('./routes/tools');
+
 
 const app = express();
 
@@ -31,7 +34,11 @@ app.use("/ocr", require("./routes/ocr")); // ADD THIS LINE
 app.use("/image", require("./routes/image"));
 app.use("/media", require("./routes/media"));
 
-const PORT = process.env.PORT || 7860;
-app.listen(PORT, () => {
-    console.log(`🚀 Server started on http://localhost:${PORT}`);
+app.use('/video', videoRoutes);
+app.use('/tools', toolRoutes);
+
+const PORT = process.env.PORT || 7860; // Railway provides the PORT variable automatically
+
+server.listen(PORT, '0.0.0.0', () => {
+  console.log(`🚀 Server is running professionally on port ${PORT}`);
 });

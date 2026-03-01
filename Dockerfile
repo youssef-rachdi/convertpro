@@ -4,6 +4,9 @@ FROM node:20
 # Install ffmpeg for your media conversions
 RUN apt-get update && apt-get install -y ffmpeg
 
+# Add this to your Dockerfile to fix GLib errors on Linux
+RUN apt-get update && apt-get install -y libglib2.0-0 libnss3 libatk1.0-0 libatk-bridge2.0-0 libcups2 libdrm2 libxkbcommon0 libxcomposite1 libxdamage1 libxrandr2 libgbm1 libasound2
+
 # Set the working directory
 WORKDIR /app
 
