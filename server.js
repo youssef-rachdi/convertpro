@@ -39,6 +39,6 @@ app.use('/tools', toolRoutes);
 
 const PORT = process.env.PORT || 7860; // Railway provides the PORT variable automatically
 
-server.listen(PORT, '0.0.0.0', () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`🚀 Server is running professionally on port ${PORT}`);
 });
