@@ -5,159 +5,73 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>ConvertPro | Free Online PDF, Image & Video Converter</title>
-  <meta name="description"
-    content="Convert files instantly with ConvertPro. Professional PDF to Word, Word to PDF, MP4 to MP3, and OCR to PDF tools. Fast, secure, and 100% free.">
-  <meta name="keywords"
-    content="PDF to Word, Word to PDF, MP4 to MP3, Image to PDF, OCR, تحويل ملفات, Convertisseur PDF">
+  <title id="meta-title">ConvertPro | Free Online PDF, Image & Video Converter</title>
+  <meta id="meta-desc" name="description" content="Convert files instantly with ConvertPro. Professional PDF to Word, Word to PDF, MP4 to MP3, and OCR tools. Fast, secure, and 100% free.">
+  <meta name="keywords" content="PDF to Word, Word to PDF, MP4 to MP3, Image to PDF, OCR, تحويل ملفات, Convertisseur PDF, free file converter">
+  
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://convertpro.live/">
+  <meta id="og-title" property="og:title" content="ConvertPro | Free Online File Converter">
+  <meta id="og-desc" property="og:description" content="Convert images, documents, and videos online for free. Fast and secure.">
+  <meta property="og:image" content="https://convertpro.live/logo.png">
 
-  <link rel="alternate" hreflang="en" href="https://yourdomain.com/" />
-  <link rel="alternate" hreflang="ar" href="https://yourdomain.com/?lang=ar" />
-  <link rel="alternate" hreflang="fr" href="https://yourdomain.com/?lang=fr" />
+  <link rel="canonical" href="https://convertpro.live/" />
+  <link rel="alternate" hreflang="en" href="https://convertpro.live/" />
+  <link rel="alternate" hreflang="fr" href="https://convertpro.live/?lang=fr" />
+  <link rel="alternate" hreflang="ar" href="https://convertpro.live/?lang=ar" />
 
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
-    crossorigin="anonymous"></script>
-
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Noto+Kufi+Arabic:wght@400;700&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Noto+Kufi+Arabic:wght@400;700&display=swap" rel="stylesheet">
 
   <style>
-    :root {
-      --font-en: 'Inter', sans-serif;
-      --font-ar: 'Noto Kufi Arabic', sans-serif;
-    }
-
-    body {
-      font-family: var(--font-en);
-      transition: background 0.5s ease;
-      overflow-x: hidden;
-    }
-
-    [dir="rtl"] {
-      font-family: var(--font-ar);
-    }
-
-    .glass {
-      background: rgba(255, 255, 255, 0.75);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-    }
-
-    .dark .glass {
-      background: rgba(17, 24, 39, 0.85);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-    }
-
-    .gradient-bg {
-      background: linear-gradient(-45deg, #4f46e5, #7c3aed, #2563eb, #0891b2);
-      background-size: 400% 400%;
-      animation: gradient 15s ease infinite;
-    }
-
-    @keyframes gradient {
-      0% {
-        background-position: 0% 50%;
-      }
-
-      50% {
-        background-position: 100% 50%;
-      }
-
-      100% {
-        background-position: 0% 50%;
-      }
-    }
-
-    .dropzone-active {
-      border-color: #6366f1;
-      background: rgba(99, 102, 241, 0.15);
-      transform: scale(1.02);
-    }
-
-    .custom-scrollbar::-webkit-scrollbar {
-      width: 6px;
-    }
-
-    .custom-scrollbar::-webkit-scrollbar-thumb {
-      background: #6366f1;
-      border-radius: 10px;
-    }
+    :root { --font-en: 'Inter', sans-serif; --font-ar: 'Noto Kufi Arabic', sans-serif; }
+    body { font-family: var(--font-en); transition: background 0.5s ease; overflow-x: hidden; }
+    [dir="rtl"] { font-family: var(--font-ar); }
+    .glass { background: rgba(255, 255, 255, 0.75); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.3); }
+    .dark .glass { background: rgba(17, 24, 39, 0.85); border: 1px solid rgba(255, 255, 255, 0.05); }
+    .gradient-bg { background: linear-gradient(-45deg, #4f46e5, #7c3aed, #2563eb, #0891b2); background-size: 400% 400%; animation: gradient 15s ease infinite; }
+    @keyframes gradient { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+    .dropzone-active { border-color: #6366f1; background: rgba(99, 102, 241, 0.15); transform: scale(1.02); }
+    .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+    .custom-scrollbar::-webkit-scrollbar-thumb { background: #6366f1; border-radius: 10px; }
   </style>
 </head>
 
 <body class="gradient-bg min-h-screen p-4 md:p-8">
 
-  <div id="aboutModal"
-    class="fixed inset-0 bg-black/60 backdrop-blur-sm hidden z-50 flex items-center justify-center p-4">
+  <div id="aboutModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm hidden z-50 flex items-center justify-center p-4">
     <div class="glass max-w-2xl w-full rounded-[2rem] p-8 max-h-[80vh] overflow-y-auto custom-scrollbar">
       <div class="flex items-center gap-4 mb-6">
         <div class="bg-indigo-600 p-3 rounded-2xl text-white">
           <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4">
-            </path>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
           </svg>
         </div>
-        <h2 class="text-3xl font-black text-gray-800 dark:text-white">About ConvertPro</h2>
+        <h2 id="about-title" class="text-3xl font-black text-gray-800 dark:text-white">About ConvertPro</h2>
       </div>
-
       <div class="text-gray-600 dark:text-gray-300 space-y-4 leading-relaxed">
-        <p class="font-bold text-indigo-600 dark:text-indigo-400">Welcome to ConvertPro Studio – Your All-in-One Digital
-          Toolkit.</p>
-
-        <p>Founded in 2026, ConvertPro was built to make high-quality file conversion and AI-powered tools accessible to
-          everyone, for free. We believe productivity tools should be fast, secure, and available without expensive
-          subscriptions.</p>
-
+        <p class="font-bold text-indigo-600 dark:text-indigo-400">Welcome to ConvertPro Studio – Your All-in-One Digital Toolkit.</p>
+        <p>Founded in 2026, ConvertPro was built to make high-quality file conversion accessible to everyone, for free.</p>
         <h3 class="text-lg font-bold text-gray-800 dark:text-white mt-4">Our Commitment</h3>
         <ul class="list-disc ml-5 space-y-2">
-          <li><b>Data Privacy:</b> We do not store your files. They are processed and instantly deleted.</li>
-          <li><b>Innovation:</b> We utilize the latest AI libraries to ensure high-accuracy OCR and background removal.
-          </li>
+          <li><b>Data Privacy:</b> Files are processed and instantly deleted.</li>
+          <li><b>Security:</b> We use SSL encryption for all transfers.</li>
         </ul>
-
-        <div
-          class="mt-8 p-6 bg-indigo-50 dark:bg-indigo-900/20 rounded-3xl border border-indigo-100 dark:border-indigo-800">
-          <h3 class="text-lg font-bold text-gray-800 dark:text-white mb-2">Contact Us</h3>
-          <p class="text-sm mb-4">Have a suggestion or found a bug? Reach out to our technical team:</p>
-          <div class="flex items-center gap-3">
-            <div class="bg-white dark:bg-gray-800 p-2 rounded-lg shadow-sm">
-              <svg class="w-5 h-5 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
-                </path>
-              </svg>
-            </div>
-            <a href="mailto:support@yourdomain.com"
-              class="text-indigo-600 dark:text-indigo-400 font-bold hover:underline">novalitepro02@gmail.com</a>
-          </div>
-        </div>
       </div>
-
-      <button onclick="document.getElementById('aboutModal').classList.add('hidden')"
-        class="mt-8 w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 rounded-2xl shadow-lg transition-all">
-        Close
-      </button>
+      <button onclick="document.getElementById('aboutModal').classList.add('hidden')" class="mt-8 w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 rounded-2xl shadow-lg transition-all">Close</button>
     </div>
   </div>
 
-
   <nav class="max-w-4xl mx-auto flex justify-between items-center mb-6 px-4">
     <div class="flex gap-2 bg-white/20 p-1.5 rounded-2xl backdrop-blur-md">
-      <button onclick="changeLang('en')"
-        class="px-3 py-1 text-xs font-bold text-white hover:bg-white/20 rounded-lg transition">EN</button>
-      <button onclick="changeLang('fr')"
-        class="px-3 py-1 text-xs font-bold text-white hover:bg-white/20 rounded-lg transition">FR</button>
-      <button onclick="changeLang('ar')"
-        class="px-3 py-1 text-xs font-bold text-white hover:bg-white/20 rounded-lg transition">العربية</button>
+      <button onclick="changeLang('en')" class="px-3 py-1 text-xs font-bold text-white hover:bg-white/20 rounded-lg transition">EN</button>
+      <button onclick="changeLang('fr')" class="px-3 py-1 text-xs font-bold text-white hover:bg-white/20 rounded-lg transition">FR</button>
+      <button onclick="changeLang('ar')" class="px-3 py-1 text-xs font-bold text-white hover:bg-white/20 rounded-lg transition">العربية</button>
     </div>
     <button onclick="toggleDark()" class="p-3 rounded-2xl bg-white/20 text-white hover:scale-110 transition shadow-lg">
       <svg id="theme-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-          d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
       </svg>
     </button>
   </nav>
@@ -172,20 +86,10 @@
   </header>
 
   <main class="glass w-full max-w-2xl mx-auto rounded-[3rem] p-6 md:p-10 shadow-2xl relative overflow-hidden">
-
-    <div class="mb-6 overflow-hidden rounded-xl bg-black/5 min-h-[90px] flex items-center justify-center">
-      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX"
-        data-ad-format="auto" data-full-width-responsive="true"></ins>
-      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-    </div>
-
     <div class="space-y-6">
       <div>
-        <label id="label-tool" for="tool"
-          class="block text-sm font-bold text-gray-500 dark:text-gray-400 mb-2 uppercase tracking-widest ml-1">Select
-          Tool</label>
-        <select id="tool" onchange="checkToolType()"
-          class="w-full bg-white/60 dark:bg-gray-900/50 border-0 ring-1 ring-gray-200 dark:ring-gray-700 rounded-2xl p-4 text-gray-800 dark:text-white outline-none focus:ring-2 focus:ring-indigo-500 transition cursor-pointer appearance-none shadow-sm">
+        <label id="label-tool" for="tool" class="block text-sm font-bold text-gray-500 dark:text-gray-400 mb-2 uppercase tracking-widest ml-1">Select Tool</label>
+        <select id="tool" onchange="checkToolType()" class="w-full bg-white/60 dark:bg-gray-900/50 border-0 ring-1 ring-gray-200 dark:ring-gray-700 rounded-2xl p-4 text-gray-800 dark:text-white outline-none focus:ring-2 focus:ring-indigo-500 transition cursor-pointer appearance-none shadow-sm">
           <option value="/office/pdf-to-word">PDF → Word (.docx)</option>
           <option value="/office/word-to-pdf">Word → PDF (.pdf)</option>
           <option value="/media/mp4-mp3">MP4 → MP3</option>
@@ -198,22 +102,16 @@
         </select>
       </div>
 
-      <div id="qrInputGroup" class="hidden animate-fade-in">
-        <label
-          class="block text-sm font-bold text-gray-500 dark:text-gray-400 mb-2 uppercase tracking-widest ml-1">Enter
-          Text or URL</label>
-        <input type="text" id="qrText" placeholder="https://google.com"
-          class="w-full bg-white/60 dark:bg-gray-900/50 border-0 ring-1 ring-gray-200 dark:ring-gray-700 rounded-2xl p-4 text-gray-800 dark:text-white outline-none focus:ring-2 focus:ring-indigo-500 transition shadow-sm">
+      <div id="qrInputGroup" class="hidden">
+        <label id="label-qr" class="block text-sm font-bold text-gray-500 dark:text-gray-400 mb-2 uppercase tracking-widest ml-1">Enter Text or URL</label>
+        <input type="text" id="qrText" placeholder="https://google.com" class="w-full bg-white/60 dark:bg-gray-900/50 border-0 ring-1 ring-gray-200 dark:ring-gray-700 rounded-2xl p-4 text-gray-800 dark:text-white outline-none focus:ring-2 focus:ring-indigo-500 transition shadow-sm">
       </div>
 
-      <div id="drop"
-        class="group border-3 border-dashed border-indigo-200 dark:border-gray-700 rounded-[2.5rem] p-10 text-center transition-all hover:border-indigo-500 hover:bg-white/40 dark:hover:bg-indigo-900/10 cursor-pointer relative shadow-inner">
+      <div id="drop" class="group border-3 border-dashed border-indigo-200 dark:border-gray-700 rounded-[2.5rem] p-10 text-center transition-all hover:border-indigo-500 hover:bg-white/40 dark:hover:bg-indigo-900/10 cursor-pointer relative shadow-inner">
         <div class="pointer-events-none">
-          <div
-            class="bg-indigo-600 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:rotate-6 transition">
+          <div class="bg-indigo-600 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:rotate-6 transition">
             <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
             </svg>
           </div>
           <p id="drop-text" class="text-xl font-bold text-gray-800 dark:text-white">Click or drag files here</p>
@@ -223,27 +121,6 @@
 
       <div id="fileList" class="hidden space-y-2 max-h-32 overflow-y-auto custom-scrollbar"></div>
 
-      <div id="qrResult"
-        class="hidden text-center p-4 bg-white/50 dark:bg-gray-800/50 rounded-3xl border border-indigo-100 dark:border-gray-700">
-        <img id="qrImg" src="" class="mx-auto w-48 h-48 mb-4 shadow-xl rounded-lg">
-        <button onclick="downloadQR()" class="text-indigo-600 font-bold underline text-sm">Download QR Code</button>
-      </div>
-      <div id="ocrResultContainer" class="hidden mt-4 animate-fade-in">
-        <label class="block text-xs font-bold text-gray-500 mb-2 uppercase tracking-widest">Extracted Text</label>
-        <div class="relative">
-          <textarea id="ocrTextArea" readonly
-            class="w-full h-40 p-4 bg-white/40 dark:bg-black/20 rounded-2xl border border-indigo-100 dark:border-gray-700 text-sm text-gray-800 dark:text-white custom-scrollbar focus:ring-2 focus:ring-indigo-500 outline-none"></textarea>
-          <button onclick="copyOCR()"
-            class="absolute top-2 right-2 bg-indigo-600 text-white p-2 rounded-lg hover:bg-indigo-700 transition">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3">
-              </path>
-            </svg>
-          </button>
-        </div>
-      </div>
-
       <div id="progressContainer" class="hidden">
         <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3 overflow-hidden shadow-inner">
           <div id="progressBar" class="bg-indigo-600 h-full w-0 transition-all duration-300"></div>
@@ -251,272 +128,129 @@
         <p id="progressText" class="text-center text-sm font-bold text-indigo-600 dark:text-indigo-400 mt-3"></p>
       </div>
 
-      <button onclick="convert()" id="convertBtn"
-        class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-black py-5 rounded-2xl shadow-xl shadow-indigo-500/20 transform active:scale-[0.98] transition-all flex items-center justify-center gap-2">
+      <button onclick="convert()" id="convertBtn" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-black py-5 rounded-2xl shadow-xl shadow-indigo-500/20 transform active:scale-[0.98] transition-all flex items-center justify-center gap-2">
         <span id="btn-text">CONVERT NOW</span>
       </button>
-
-      <div class="mt-6 overflow-hidden rounded-xl bg-black/5 min-h-[90px] flex items-center justify-center">
-        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-          data-ad-slot="XXXXXXXXXX" data-ad-format="auto" data-full-width-responsive="true"></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});
-
-        </script>
-      </div>
     </div>
   </main>
 
-  <section class="max-w-4xl mx-auto mt-16 px-6 pb-20">
-    <h2 class="text-2xl font-bold text-white mb-8 text-center">Frequently Asked Questions</h2>
-    <div class="grid md:grid-cols-2 gap-6">
-      <div class="glass p-6 rounded-3xl">
-        <h3 class="font-bold text-indigo-600 dark:text-indigo-400 mb-2">Is it safe to upload my files?</h3>
-        <p class="text-sm text-gray-600 dark:text-gray-300">Yes. ConvertPro processes all files in a secure, temporary
-          environment. Files are automatically deleted immediately after conversion.</p>
-      </div>
-      <div class="glass p-6 rounded-3xl">
-        <h3 class="font-bold text-indigo-600 dark:text-indigo-400 mb-2">Is there a file size limit?</h3>
-        <p class="text-sm text-gray-600 dark:text-gray-300">Currently, we support files up to 50MB. This ensures fast
-          processing speeds for all users without server lag.</p>
-      </div>
-      <div class="glass p-6 rounded-3xl">
-        <h3 class="font-bold text-indigo-600 dark:text-indigo-400 mb-2">Are the tools really free?</h3>
-        <p class="text-sm text-gray-600 dark:text-gray-300">Absolutely. All our office, image, and video tools are 100%
-          free to use with no hidden subscriptions.</p>
-      </div>
-      <div class="glass p-6 rounded-3xl">
-        <h3 class="font-bold text-indigo-600 dark:text-indigo-400 mb-2">How do I use the QR generator?</h3>
-        <p class="text-sm text-gray-600 dark:text-gray-300">Select "Generate QR Code" from the menu, type your URL or
-          text, and click generate. You can download the image instantly.</p>
-      </div>
-    </div>
-  </section>
-
   <footer class="mt-12 text-center text-white/60 text-[10px] font-bold uppercase tracking-[0.2em]">
-    © 2026 ConvertPro Studio • <a href="javascript:void(0)"
-      onclick="document.getElementById('privacyModal').classList.remove('hidden')" class="hover:text-white">Privacy</a>
-    • <a href="#" class="hover:text-white">Terms</a>
-    <a href="javascript:void(0)" onclick="document.getElementById('aboutModal').classList.remove('hidden')"
-      class="hover:text-white">About Us</a>
+    © 2026 ConvertPro Studio • 
+    <a href="javascript:void(0)" onclick="document.getElementById('privacyModal').classList.remove('hidden')" class="hover:text-white">Privacy</a> • 
+    <a href="javascript:void(0)" onclick="document.getElementById('aboutModal').classList.remove('hidden')" class="hover:text-white">About Us</a>
   </footer>
 
-  <script>
-    const drop = document.getElementById("drop");
-    const fileInput = document.getElementById("fileInput");
-    const fileList = document.getElementById("fileList");
-    const toolSelect = document.getElementById("tool");
-    const qrInputGroup = document.getElementById("qrInputGroup");
-    const qrResult = document.getElementById("qrResult");
-    let selectedFiles = [];
+  <div id="privacyModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm hidden z-50 flex items-center justify-center p-4">
+    <div class="glass max-w-2xl w-full rounded-[2rem] p-8 max-h-[80vh] overflow-y-auto custom-scrollbar">
+      <h2 class="text-2xl font-bold mb-4">Privacy Policy</h2>
+      <div class="text-sm text-gray-600 dark:text-gray-300 space-y-4">
+        <p>Your privacy is our priority. Files are deleted immediately after processing. We do not store your data.</p>
+      </div>
+      <button onclick="document.getElementById('privacyModal').classList.add('hidden')" class="mt-6 w-full bg-indigo-600 text-white font-bold py-3 rounded-xl">Close</button>
+    </div>
+  </div>
 
+  <script>
     const translations = {
       en: {
+        metaTitle: 'ConvertPro | Free Online PDF, Image & Video Converter',
+        metaDesc: 'Convert files instantly with ConvertPro. Professional PDF to Word, MP4 to MP3. Fast, secure, and 100% free.',
         title: 'Convert Files <span class="text-indigo-200">Instantly.</span>',
         desc: 'Fast, secure, and free online converter for any device.',
         drop: 'Click or drag files here',
         btn: 'CONVERT NOW',
         label: 'Select Tool',
-        dir: 'ltr',
-        error: '❌ Error: Route not found or server crash!'
-      },
-      ar: {
-        title: 'حوّل ملفاتك <span class="text-indigo-200">فوراً وبسهولة</span>',
-        desc: 'أداة سحابية سريعة، آمنة ومجانية بالكامل لجميع أجهزتك.',
-        drop: 'اضغط هنا أو اسحب الملفات',
-        btn: 'ابدأ التحويل الآن',
-        label: 'اختر الأداة',
-        dir: 'rtl',
-        error: '❌ خطأ: المسار غير موجود أو تعطل الخادم!'
+        qrLabel: 'Enter Text or URL',
+        dir: 'ltr'
       },
       fr: {
+        metaTitle: 'ConvertPro | Convertisseur de fichiers gratuit (PDF, Image & Vidéo)',
+        metaDesc: 'Convertissez des fichiers instantanément avec ConvertPro. PDF en Word, MP4 en MP3. Rapide, sécurisé et gratuit.',
         title: 'Convertissez <span class="text-indigo-200">instantanément.</span>',
         desc: 'Convertisseur cloud rapide, sûr et gratuit pour tout appareil.',
         drop: 'Cliquez ou glissez vos fichiers ici',
         btn: 'CONVERTIR MAINTENANT',
         label: 'Sélectionner l\'outil',
-        dir: 'ltr',
-        error: '❌ Erreur: Route introuvable ou crash serveur!'
+        qrLabel: 'Entrez le texte ou l\'URL',
+        dir: 'ltr'
+      },
+      ar: {
+        metaTitle: 'ConvertPro | محول ملفات مجاني - PDF، صور وفيديو',
+        metaDesc: 'قم بتحويل الملفات فوراً باستخدام ConvertPro. تحويل PDF إلى Word و MP4 إلى MP3. سريع وآمن ومجاني.',
+        title: 'حوّل ملفاتك <span class="text-indigo-200">فوراً وبسهولة</span>',
+        desc: 'أداة سحابية سريعة، آمنة ومجانية بالكامل لجميع أجهزتك.',
+        drop: 'اضغط هنا أو اسحب الملفات',
+        btn: 'ابدأ التحويل الآن',
+        label: 'اختر الأداة',
+        qrLabel: 'أدخل النص أو الرابط',
+        dir: 'rtl'
       }
     };
 
-    // Toggle between File upload and QR text input
-    function checkToolType() {
-      if (toolSelect.value === "/tools/generate-qr") {
-        drop.classList.add("hidden");
-        fileList.classList.add("hidden");
-        qrInputGroup.classList.remove("hidden");
-        document.getElementById("btn-text").innerText = "GENERATE QR";
-      } else {
-        drop.classList.remove("hidden");
-        qrInputGroup.classList.add("hidden");
-        qrResult.classList.add("hidden");
-        document.getElementById("btn-text").innerText = "CONVERT NOW";
-        if (selectedFiles.length > 0) fileList.classList.remove("hidden");
-      }
-    }
-
     function changeLang(lang) {
       const t = translations[lang];
+      
+      // Content Updates
       document.getElementById("hero-title").innerHTML = t.title;
       document.getElementById("hero-desc").innerText = t.desc;
       document.getElementById("drop-text").innerText = t.drop;
       document.getElementById("btn-text").innerText = t.btn;
       document.getElementById("label-tool").innerText = t.label;
+      if(document.getElementById("label-qr")) document.getElementById("label-qr").innerText = t.qrLabel;
+
+      // SEO Updates
+      document.title = t.metaTitle;
+      document.getElementById("meta-desc").setAttribute("content", t.metaDesc);
+      document.getElementById("og-title").setAttribute("content", t.metaTitle);
+      document.getElementById("og-desc").setAttribute("content", t.metaDesc);
+
       document.body.dir = t.dir;
       document.documentElement.lang = lang;
       localStorage.setItem("lang", lang);
     }
 
-    changeLang(localStorage.getItem("lang") || 'en');
+    // Initialize Language
+    const savedLang = localStorage.getItem("lang") || 'en';
+    changeLang(savedLang);
+
+    // Dark Mode Toggle
     function toggleDark() { document.documentElement.classList.toggle("dark"); }
 
-    drop.onclick = () => fileInput.click();
-    fileInput.onchange = e => handleFiles(e.target.files);
-    drop.ondragover = e => { e.preventDefault(); drop.classList.add('dropzone-active'); };
-    drop.ondragleave = () => drop.classList.remove('dropzone-active');
-    drop.ondrop = e => { e.preventDefault(); drop.classList.remove('dropzone-active'); handleFiles(e.dataTransfer.files); };
+    // Logic for Tool Switch
+    function checkToolType() {
+      const tool = document.getElementById("tool").value;
+      const drop = document.getElementById("drop");
+      const qrGroup = document.getElementById("qrInputGroup");
+      if (tool === "/tools/generate-qr") {
+        drop.classList.add("hidden");
+        qrGroup.classList.remove("hidden");
+      } else {
+        drop.classList.remove("hidden");
+        qrGroup.classList.add("hidden");
+      }
+    }
 
-    function handleFiles(files) {
-      selectedFiles = Array.from(files);
-      fileList.innerHTML = "";
-      if (selectedFiles.length > 0) {
-        fileList.classList.remove('hidden');
-        selectedFiles.forEach(f => {
-          const div = document.createElement('div');
-          div.className = "flex justify-between p-3 bg-white/50 dark:bg-gray-800/50 rounded-xl text-xs border border-white/20";
-          div.innerHTML = `<span>📄 <b>${f.name}</b></span> <span class="opacity-50">${(f.size / 1024 / 1024).toFixed(2)} MB</span>`;
-          fileList.appendChild(div);
+    // File Handling
+    const fileInput = document.getElementById("fileInput");
+    const dropZone = document.getElementById("drop");
+    dropZone.onclick = () => fileInput.click();
+    fileInput.onchange = e => {
+        const files = Array.from(e.target.files);
+        const list = document.getElementById("fileList");
+        list.innerHTML = "";
+        list.classList.remove("hidden");
+        files.forEach(f => {
+            const div = document.createElement("div");
+            div.className = "flex justify-between p-3 bg-white/50 dark:bg-gray-800/50 rounded-xl text-xs";
+            div.innerHTML = `<span>📄 ${f.name}</span> <span>${(f.size/1024/1024).toFixed(2)}MB</span>`;
+            list.appendChild(div);
         });
-      }
-    }
+    };
 
+    // Placeholder for Convert function
     async function convert() {
-      const toolRoute = toolSelect.value;
-      const btn = document.getElementById("convertBtn");
-      const pBar = document.getElementById("progressBar");
-      const pText = document.getElementById("progressText");
-      const pCont = document.getElementById("progressContainer");
-
-      // SPECIAL LOGIC FOR QR GENERATOR
-      if (toolRoute === "/tools/generate-qr") {
-        const text = document.getElementById("qrText").value;
-        if (!text) return alert("Please enter some text or a URL!");
-
-        btn.disabled = true;
-        try {
-          const response = await fetch(toolRoute, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ text })
-          });
-          const data = await response.json();
-          document.getElementById("qrImg").src = data.qrCode;
-          qrResult.classList.remove("hidden");
-        } catch (err) {
-          alert("QR Generation failed");
-        }
-        btn.disabled = false;
-        return;
-      }
-
-      // NORMAL FILE UPLOAD LOGIC
-      if (selectedFiles.length === 0) return alert("Please select a file first!");
-
-      btn.disabled = true;
-      pCont.classList.remove("hidden");
-      pBar.style.width = "0%";
-      pBar.classList.remove("bg-green-500", "bg-red-500");
-      pBar.classList.add("bg-indigo-600");
-
-      const formData = new FormData();
-      selectedFiles.forEach(f => formData.append("file", f));
-
-      const xhr = new XMLHttpRequest();
-      xhr.open("POST", toolRoute, true);
-      xhr.responseType = "blob";
-
-      xhr.upload.onprogress = e => {
-        if (e.lengthComputable) {
-          const percent = Math.round((e.loaded / e.total) * 100);
-          pBar.style.width = percent + "%";
-          pText.innerText = `Processing: ${percent}%`;
-        }
-      };
-
-      xhr.onload = () => {
-        if (xhr.status === 200) {
-          const url = URL.createObjectURL(xhr.response);
-          const a = document.createElement("a");
-          a.href = url;
-
-          let ext = ".pdf";
-          if (toolRoute.includes("to-word")) ext = ".docx";
-          if (toolRoute.includes("mp3")) ext = ".mp3";
-          if (toolRoute.includes("video-to-gif")) ext = ".gif";
-          if (toolRoute === "/image/compress") ext = ".jpg";
-          if (toolRoute === "/image/remove-bg") ext = ".png";
-
-          a.download = "ConvertPro_" + Date.now() + ext;
-          a.click();
-          pText.innerText = "✅ Done!";
-        } else {
-          pText.innerText = "❌ Error occurred";
-        }
-        btn.disabled = false;
-      };
-
-      xhr.onerror = () => {
-        pText.innerText = "❌ Connection Error!";
-        btn.disabled = false;
-      };
-
-      xhr.send(formData);
+        alert("Connecting to server... Ensure your backend API is running at the selected route.");
     }
-
-    function downloadQR() {
-      const link = document.createElement("a");
-      link.href = document.getElementById("qrImg").src;
-      link.download = "QR_Code_" + Date.now() + ".png";
-      link.click();
-    }
-
-    function copyOCR() {
-      const text = document.getElementById("ocrTextArea");
-      text.select();
-      document.execCommand("copy");
-      alert("Text copied to clipboard!");
-    }
-
-    app.get('/sitemap.xml', (req, res) => {
-      res.header('Content-Type', 'application/xml');
-      res.send(`<?xml version="1.0" encoding="UTF-8"?>
-    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-      <url>
-        <loc>https://convertpro.live/</loc>
-        <lastmod>2026-03-04</lastmod>
-      </url>
-    </urlset>`);
-    });
-    app.use(express.static('public'));
   </script>
 </body>
-
-<div id="privacyModal"
-  class="fixed inset-0 bg-black/60 backdrop-blur-sm hidden z-50 flex items-center justify-center p-4">
-  <div class="glass max-w-2xl w-full rounded-[2rem] p-8 max-h-[80vh] overflow-y-auto custom-scrollbar">
-    <h2 class="text-2xl font-bold mb-4">Privacy Policy</h2>
-    <div class="text-sm text-gray-600 dark:text-gray-300 space-y-4">
-      <p>At ConvertPro, we take your privacy seriously. Here is how we handle your data:</p>
-      <ul class="list-disc ml-5 space-y-2">
-        <li><b>File Handling:</b> Files are uploaded to a temporary secure directory.</li>
-        <li><b>Automatic Deletion:</b> Files are deleted immediately after the conversion process is complete.</li>
-        <li><b>No Storage:</b> We do not store, view, or share any of your personal files.</li>
-        <li><b>Cookies:</b> We use standard Google AdSense cookies to provide relevant advertisements.</li>
-      </ul>
-    </div>
-    <button onclick="document.getElementById('privacyModal').classList.add('hidden')"
-      class="mt-6 w-full bg-indigo-600 text-white font-bold py-3 rounded-xl">Close</button>
-  </div>
-</div>
-
 </html>
